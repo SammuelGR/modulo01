@@ -6,8 +6,13 @@ const server = express();
 // Query params: /users/1
 // Request body: { user: Sammuel }
 
+const users = ['Sammuel', 'Diego', 'Alface', 'Lucas'];
+
+server.get('/users', (req, res) => {
+  return res.json(users);
+});
+
 server.get('/users/:index', (req, res) => {
-  const users = ['Sammuel', 'Diego', 'Alface'];
   const { index } = req.params;
 
   res.json(users[index]);
